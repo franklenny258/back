@@ -1,5 +1,6 @@
 import { Get, Param, Controller } from '@nestjs/common';
 import { WikipediaService } from 'src/common/providers';
+import { GetFeaturedContentDto } from '../dto/get-feature-content.dto';
 
 @Controller('feed')
 export class WikipediaController {
@@ -7,10 +8,7 @@ export class WikipediaController {
 
   @Get('/:language/featured/:year/:month/:day')
   async getFeaturedContent(
-    @Param('language') language: string,
-    @Param('year') year: string,
-    @Param('month') month: string,
-    @Param('day') day: string,
+    @Param() { year, month, day, language }: GetFeaturedContentDto,
   ): Promise<any> {
     const date = `${year}/${month}/${day}`;
     return this.wikipediaService.getFeaturedContent(language, date);
