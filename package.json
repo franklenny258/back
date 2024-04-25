@@ -67,6 +67,10 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^@nestjs/(.*)$": "<rootDir>/../node_modules/@nestjs/$1",
+      "^src/(.*)$": "<rootDir>/$1"
+    }
   }
 }
