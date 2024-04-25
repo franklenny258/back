@@ -31,8 +31,7 @@ export class TranslationService {
         },
       );
 
-      console.log(response);
-      return;
+      return response.data.translatedText;
     } catch (error) {
       console.log(error);
       throw new Error('Failed to fetch translation');
