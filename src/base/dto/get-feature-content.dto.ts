@@ -10,12 +10,16 @@ export class GetFeaturedContentDto {
   year: number;
 
   @IsInt()
-  @IsIn([...Array(31).keys()].map((x) => x + 1)) // Month should be between 1 and 31
+  @IsIn([...Array(31).keys()].map((x) => x + 1), {
+    message: 'Day must be between 1 and 31',
+  })
   @Type(() => Number)
   day: number;
 
   @IsInt()
-  @IsIn([...Array(12).keys()].map((x) => x + 1)) // Month should be between 1 and 12
+  @IsIn([...Array(12).keys()].map((x) => x + 1), {
+    message: 'Month must be between 1 and 12',
+  })
   @Type(() => Number)
   month: number;
 }
